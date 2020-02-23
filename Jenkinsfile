@@ -3,19 +3,17 @@ pipeline {
     stages {
         stage('------------Clone Repo and clean it from Jenkinsfile-------------') { 
             steps {
-                sh "rm -rf FirstMavenHelloWorld"
-               sh "git clone https://github.com/akotipalli/FirstMavenHelloWorld.git"
-               sh "mvn clean -f FirstMavenHelloWorld"
+               sh "mvn clean"
             }
         }
         stage('-------------Test from Jenkinsfile----------------') { 
             steps {
-                sh "mvn test -f FirstMavenHelloWorld"
+                sh "mvn test"
             }
         }
         stage('-------------Deploy from Jenkinsfile-----------------') { 
             steps {
-               sh "mvn package -f FirstMavenHelloWorld"
+               sh "mvn package"
             }
         }
     }
